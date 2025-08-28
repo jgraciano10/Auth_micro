@@ -33,12 +33,12 @@ cors:
 
 adapters:
   r2dbc:
-    host: 127.0.0.1
-    port: 5432
+    host: ${DB_URL}
+    port: ${DB_PORT}
     database: crediya
     schema: public
-    username: postgres
-    password: HTCjdg1998#
+    username: ${DB_USER}
+    password: ${DB_PASS}
 
 logging:
   level:
