@@ -52,8 +52,3 @@ springdoc:
     path: /swagger-ui.html
     disable-swagger-default-url: true
 
-logging_collector: "on"
-log_statement: "all"                # para logear todas las consultas
-log_min_duration_statement: 0       # logear todas las consultas, incluso rápidas
-log_directory: "pg_log"
-log_filename: "postgresql-%Y-%m-%d_%H%M%S.log"
