@@ -1,0 +1,59 @@
+openapi: 3.0.1
+info:
+  title: API de Solicitudes
+  version: 1.0.0
+  description: Documentación de la API de creación y gestión de solicitudes
+
+paths:
+  /api/v1/solicitud:
+    post:
+      operationId: crearSoliciud
+      summary: Crear solicitud
+      description: Crear una solicitud de credito
+      requestBody:
+        required: true
+        description: Datos de la solicitud
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SolicitudRequest'
+      responses:
+        "201":
+          description: Creado
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "Solicitud creada con exito"
+        "400":
+          description: Error de validación
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "Bad request, revisa parametros de entrada"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "error controlado en el servidor"
+
+components:
+  schemas:
+    SolicitudRequest:
+      type: object
+      properties:
+        documentoIdentidad:
+          type: string
+          example: "367264842"
+        plazo:
+          type: number
+          example: 12
+        monto:
+          type: number
+          example: 3000000
+        tipoPrestamo:
+          type: string
+          example: "LIBRE_INVERSION"
